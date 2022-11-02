@@ -16,7 +16,7 @@ public class Program_1{
 		
 		for(int i = 0; i < rows; i++) {
 			for(int j = 0; j < rows; j++) {
-				tempMatrix[i][j] = value.nextInt(100) + 1; //values 1-100
+				tempMatrix[i][j] = value.nextInt(10); //values 0-9
 			}
 		}
 		
@@ -55,6 +55,10 @@ public class Program_1{
 		final int RUN_TIMES = 20;
 		int numEquations;
 		int[][] matrixA, matrixB, result;
+		long start;
+		long timeCM = 0;
+		long timeDC = 0;
+		long timeS = 0;
 		
 		for(int i = 1; i <= 7; i++) { //based on previous courses my computer can handle up to 2^7 matrice rows/variables
 			numEquations = (int)Math.pow(2, i); //number of equations is based on powers of 2
@@ -62,9 +66,17 @@ public class Program_1{
 			matrixA = randomMatrixValues(numEquations);
 			matrixB = randomMatrixValues(numEquations);
 			
+			start = System.nanoTime();
 			result = classicMult(matrixA, matrixB, numEquations);
+			timeCM = System.nanoTime();
+			timeCM = timeCM - start;
+			
+			
 			//result = dcMult(matrixA, matrixB, numEquations); //assuming using same parameters
 			//result = strassenMult(matrixA, matrixB, numEquations); //assuming using same parameters
+			
+			System.out.println("Time Evaluations(for " + numEquations + "x" + numEquations + "): ");
+			System.out.println("Classic Multiplication Matrix Method: " + timeCM);
 		}
 		
 		
