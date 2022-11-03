@@ -70,6 +70,14 @@ public class Program_1{
 			result = classicMult(matrixA, matrixB, numEquations);
 			timeCM = System.nanoTime();
 			timeCM = timeCM - start;
+			/** Check if output is proper
+			 * for(int num = 0; num < numEquations; num++){
+			 * 	for(int num2 = 0; num2 < numEquations; num2++){
+			 * 		System.out.print(result[num][num2] + " ");
+			 * 	}
+			 * 	System.out.println();
+			 * }
+			 */
 			
 			
 			//result = dcMult(matrixA, matrixB, numEquations); //assuming using same parameters
