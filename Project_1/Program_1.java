@@ -218,8 +218,8 @@ int[][] C = new int[num][num];
 		for(int i = 1; i <= 7; i++) { //based on previous courses my computer can handle up to 2^7 matrice rows/variables
 			numEquations = (int)Math.pow(2, i); //number of equations is based on powers of 2
 			
-			//iteration
-			for(int j = 1; j <= RUN_TIMES; j++) {
+			for(int k = 1; k <= 1000; k++) {
+				
 				matrixA = randomMatrixValues(numEquations);
 				/** Check if output is proper
 				 * System.out.println("Matrix A: ");
@@ -241,47 +241,53 @@ int[][] C = new int[num][num];
 				 * }
 				 */
 				
-				start = System.nanoTime();
-				result = classicMult(matrixA, matrixB, numEquations);
-				end = System.nanoTime();
-				timeCM += end - start;
-				/** Check if output is proper
-				 * for(int num = 0; num < numEquations; num++){
-				 * 	for(int num2 = 0; num2 < numEquations; num2++){
-				 * 		System.out.print(result[num][num2] + " ");
-				 * 	}
-				 * 	System.out.println();
-				 * }
-				 */
-				
-				start = System.nanoTime();
-				result = dcMult(matrixA, matrixB, numEquations);
-				end = System.nanoTime();
-				timeDC += end - start;
-				/** Check if output is proper
-				 * for(int num = 0; num < numEquations; num++){
-				 * 	for(int num2 = 0; num2 < numEquations; num2++){
-				 * 		System.out.print(result[num][num2] + " ");
-				 * 	}
-				 * 	System.out.println();
-				 * }
-				 */
-				
-				start = System.nanoTime();
-				result = strassenMult(matrixA, matrixB, numEquations);
-				end = System.nanoTime();
-				timeS += end - start;
-				/** Check if output is proper
-				 * for(int num = 0; num < numEquations; num++){
-				 * 	for(int num2 = 0; num2 < numEquations; num2++){
-				 * 		System.out.print(result[num][num2] + " ");
-				 * 	}
-				 * 	System.out.println();
-				 * }
-				 */
-				
+				//iteration
+				for(int j = 1; j <= RUN_TIMES; j++) {
+					
+					start = System.nanoTime();
+					result = classicMult(matrixA, matrixB, numEquations);
+					end = System.nanoTime();
+					timeCM += end - start;
+					/** Check if output is proper
+					 * for(int num = 0; num < numEquations; num++){
+					 * 	for(int num2 = 0; num2 < numEquations; num2++){
+					 * 		System.out.print(result[num][num2] + " ");
+					 * 	}
+					 * 	System.out.println();
+					 * }
+					 */
+					
+					start = System.nanoTime();
+					result = dcMult(matrixA, matrixB, numEquations);
+					end = System.nanoTime();
+					timeDC += end - start;
+					/** Check if output is proper
+					 * for(int num = 0; num < numEquations; num++){
+					 * 	for(int num2 = 0; num2 < numEquations; num2++){
+					 * 		System.out.print(result[num][num2] + " ");
+					 * 	}
+					 * 	System.out.println();
+					 * }
+					 */
+					
+					start = System.nanoTime();
+					result = strassenMult(matrixA, matrixB, numEquations);
+					end = System.nanoTime();
+					timeS += end - start;
+					/** Check if output is proper
+					 * for(int num = 0; num < numEquations; num++){
+					 * 	for(int num2 = 0; num2 < numEquations; num2++){
+					 * 		System.out.print(result[num][num2] + " ");
+					 * 	}
+					 * 	System.out.println();
+					 * }
+					 */
+					
+				}
 				
 			}
+			
+			
 			
 			timeCM = timeCM/RUN_TIMES;
 			timeDC = timeDC/RUN_TIMES;
