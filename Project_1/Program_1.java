@@ -208,6 +208,7 @@ int[][] C = new int[num][num];
 	public static void main(String[] args) {
 		
 		final int RUN_TIMES = 20;
+		final int randomMatrices = 1000;
 		int numEquations;
 		int[][] matrixA, matrixB, result;
 		long start, end;
@@ -218,7 +219,7 @@ int[][] C = new int[num][num];
 		for(int i = 1; i <= 7; i++) { //based on previous courses my computer can handle up to 2^7 matrice rows/variables
 			numEquations = (int)Math.pow(2, i); //number of equations is based on powers of 2
 			
-			for(int k = 1; k <= 1000; k++) {
+			for(int k = 1; k <= randomMatrices; k++) {
 				
 				matrixA = randomMatrixValues(numEquations);
 				/** Check if output is proper
@@ -289,9 +290,9 @@ int[][] C = new int[num][num];
 			
 			
 			
-			timeCM = timeCM/RUN_TIMES;
-			timeDC = timeDC/RUN_TIMES;
-			timeS = timeS/RUN_TIMES;
+			timeCM = timeCM/(RUN_TIMES * randomMatrices);
+			timeDC = timeDC/(RUN_TIMES * randomMatrices);
+			timeS = timeS/(RUN_TIMES * randomMatrices);
 			
 			System.out.println("Average Time Evaluations(for " + numEquations + "x" + numEquations + "): ");
 			System.out.println("Classic Multiplication Matrix Method: " + timeCM);
